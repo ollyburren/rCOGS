@@ -1,3 +1,6 @@
+
+
+
 #' helper function to sum logs without loss of precision
 #' \code{logsum} sums logs without loss of precision
 #'
@@ -62,3 +65,20 @@ approx.bf.p <- function(p,f,type=c('QUANT','CC'), N, s,pi_i=1e-4) {
   ppi<- exp(lABF + log(pi_i))/(exp(sBF) + 1)
   return(ppi)
 }
+
+
+
+
+
+## test it out
+
+## load maf information
+
+
+
+## load ld information
+
+#ld.gr <- load_ld_regions('/Users/oliver/DATA/rCOGS/hapmap_recomb.bed')
+#maf.DT <- load_ref_maf('/Users/oliver/DATA/rCOGS/uk10k_0.001.tab')
+#sle <- load_gwas('/Users/oliver/DATA/rCOGS/SLE.tab',maf.DT,ld.gr,n.cases=4036,n.controls=6959)
+## load set of summary statistics and compute ppi
