@@ -1,6 +1,10 @@
-library(data.table)
-library(magrittr)
-library(GenomicRanges)
+#' @import data.table
+
+
+#library(GenomicRanges)
+#library(data.table)
+#library(magrittr)
+
 
 
 
@@ -13,15 +17,14 @@ LD_COLS <- c('chr','start','end')
 #' @param f a scalar representing a file name (so user can understand which file is problematic)
 #' @return a vector of reformatted chromosomes
 
-
-fix_chr <- function(chr,f){
-  chr <- gsub("^chr","",chr)
-  chr[chr=='X']=23
-  chr[chr=='Y']=24
-  chr[chr=='M']=25
-  if(grepl("^[0-9][0-9]*$",chr) %>% sum != length(chr))
+fix_chr <- function(c,f){
+  ct <- gsub("^chr","",c)
+  ct[ct=='X']=23
+  ct[ct=='Y']=24
+  ct[ct=='MT']=25
+  if(grepl("^[0-9][0-9]*$",ct) %>% sum != length(ct))
     stop(sprintf("File %s contains non standard chromosomes",f))
-  return(as.numeric(chr))
+  return(as.numeric(ct))
 }
 
 #' This function checks and loads a reference set of maf expects three columns tab delim file with colnames  chr,pos and maf
@@ -36,12 +39,12 @@ load_ref_maf <- function(f,min.maf=0.05){
   if(!identical(names(DT),MAF_COLS)){
     stop(sprintf("COGSR:load_ref_maf file format error, expected columns ''%s' got '%s' ",
       paste(MAF_COLS,sep=',',collapse=',',),
-      paste(names(f),sep=',',collapse=',',))
+      paste(names(DT),sep=',',collapse=',',))
     )
   }
   ## check for allele freq rather than maf and fix accordingly
   DT[,maf:=ifelse(maf>0.5,1-maf,maf)]
-  message(sprintf("Adding unique id and filter on MAF > %f",min.maf))
+  message(sprintf("Adding unique identifier and filtering on MAF > %f",min.maf))
   DT <- DT[maf>min.maf][,pid:=fix_chr(chr,f) %>% paste(.,pos,sep=':')]
   setkey(DT,pid)
   return(DT)
@@ -56,11 +59,11 @@ load_ld_regions <- function(f){
   DT <- fread(f)
   if(!identical(names(DT),LD_COLS)){
     stop(sprintf("COGSR:load_ld_regions file format error, expected columns ''%s' got '%s'",
-      paste(MAF_COLS,sep=',',collapse=',',),
-      paste(names(f),sep=',',collapse=',',))
+      paste(LD_COLS,sep=',',collapse=',',),
+      paste(names(DT),sep=',',collapse=',',))
     )
   }
-  DT[,chr:=fix_chr(chr,f)]
+  #DT[,chr:=fix_chr(chr,f)]
   DT <- DT[order(chr,start),][,ldid:=1:.N]
   gr <- with(DT,GRanges(seqnames=Rle(chr),ranges=IRanges(start=start,end=end),ldid=ldid))
   ## do some checks to see that these are non overlapping regions
@@ -95,11 +98,13 @@ load_gwas <- function(f,maf.DT,ld.gr,n.cases,n.controls,plink=FALSE){
   message(sprintf("COGSR:load_gwas added MAF before %d variants after %d",nrow(DT),nrow(M.DT)))
   ## add ld block information
   M.gr <- with(M.DT,GRanges(seqnames=Rle(chr),ranges=IRanges(start=pos,width=1L),pid=pid))
-  ol <- findOverlaps(M.gr,LD.gr) %>% as.matrix()
+  ol <- findOverlaps(M.gr,ld.gr) %>% as.matrix()
   M.DT[ol[,1],ld:=ol[,2]]
   ld.miss <- sum(is.na(M.DT$ld))
-  if(ld.miss>0)
+  if(ld.miss>0){
     message(sprintf("COGSR:load_gwas %d input variants did not overlap an LD block these won't be included in analysis",ld.miss))
+    M.DT <- M.DT[!is.na(ld),]
+  }
   if(any(duplicated(DT$M.DT)))
       stop(sprintf("COGSR:load_gwas found duplicate variants by position in %s pleas fix",f))
   if(missing(n.controls)){
@@ -110,5 +115,9 @@ load_gwas <- function(f,maf.DT,ld.gr,n.cases,n.controls,plink=FALSE){
     prop <- n.cases/study.size
     M.DT[,ppi:=approx.bf.p(p,maf,'CC',study.size,prop),by=ld]
   }
+  ## check to see if any ppi are NA as this indicates an error
+  na.ppi <- sum(is.na(M.DT$ppi)) %>% sum
+  if(na.ppi>0)
+      message(sprintf("COGSR:load_gwas %d input variants have an invalid ppi please check that ld block",na.ppi))
   M.DT
 }
