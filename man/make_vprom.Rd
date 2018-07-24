@@ -14,7 +14,7 @@ make_vprom(f.digest, f.design, keep.ensg)
 \item{keep.ensg}{a vector of ensembl id's to include. If ommited then all ensembl ids regardless of further filtering are included}
 }
 \value{
-GRanges object of 'Virtual' promoter regions
+data.table with two columns mapping ensg to virtual promoter fragment ids
 }
 \description{
 This function computes 'Virtual' promoter regions. These are baited fragments and the fragments either side.

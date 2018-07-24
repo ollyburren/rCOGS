@@ -34,7 +34,7 @@ make_pchic(f, chic_thresh = 5, biotype.filter = "protein_coding",
 \item{remove.trans.contacts}{a boolean on whether to remove interaction between chromosomes. Default is set to TRUE.}
 }
 \value{
-list of GenomicRanges representing regions interacting with genes for each tissue type.
+list of data.tables where each data.table has three columns ensg,fragid and chic.score
 }
 \description{
 This function computes loads in a set of promoter capture Hi-C files (pcHi-C). This is a tab delimited file that contains the following mandatory columns
