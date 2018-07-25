@@ -27,7 +27,7 @@ compute_cogs <- function(gwas,csnps,digest,regions,feature.set){
   ## we can compute any score by selecting one or more tissues
   if(missing(feature.set)){
       feature.set <- c(names(regions),'coding_snp')
-      message(sprintf("rCOGS:compute_cogs feature.set argument missing computing overall score using %s",paste(feature.set,collapse=',',sep=',')))
+      message(sprintf("rCOGS:compute_cogs feature.set argument missing computing overall score using %s",paste(feature.set,collapse=",\n",sep=",\n")))
   }
   #feature.set <- c(names(regions),'coding_snp')
   fs.DT <- mDT[tissue %in% feature.set,]

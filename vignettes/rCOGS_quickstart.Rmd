@@ -103,13 +103,15 @@ rCOGS integrates functional information where possible. To do this it needs a ca
 ## Installing COGS
 
 You will need to have the devtool R package installed
-
-```{r}
+```{r,eval=FALSE}
 library(devtools)
 install_github("ollyburren/rCOGS")
-#library(rCOGS)
-#library(GenomicRanges)
-#library(magrittr)
+```
+
+```{r}
+library(rCOGS)
+library(GenomicRanges)
+library(magrittr)
 ```
 
 ## loading recombination data 
@@ -121,7 +123,7 @@ This is how to build objects - note due to size you will need to download these 
 ld.gr <- load_ld_regions('./inst/extdata/hamap_1cM_recomb.bed')
 ld.gr
 ```
-```{r}
+```{r,echo = F, eval = T}
 data("ld.gr",package="rCOGS")
 ld.gr
 ```
@@ -133,7 +135,7 @@ maf.DT <- load_ref_maf('./inst/extdata/uk10k_reference_maf.tab',min.maf=0.05)
 head(maf.DT)
 ```
 
-```{r}
+```{r,echo = F, eval = T}
 data("maf.DT",package="rCOGS")
 head(maf.DT)
 ```
@@ -144,7 +146,7 @@ N.B here we have a study with 4036 cases and 6959 controls.
 t1d.DT <- load_gwas('./inst/extdata/ncooper_t1d_gwas.tab',maf.DT,ld.gr,n.cases=5913,n.controls=8829)
 head(t1d.DT)
 ```
-```{r}
+```{r,echo = F, eval = T}
 data("t1d.DT",package="rCOGS")
 head(t1d.DT)
 ```
@@ -159,7 +161,7 @@ note the biotype.filter argument. This can be a vector of biotypes or left blank
 feature.sets <- make_pchic('./inst/extdata/javierre_pchic_ensembl75.tab',biotype.filter='protein_coding')
 names(feature.sets)
 ```
-```{r}
+```{r,echo = F, eval = T}
 data("feature.sets",package="rCOGS")
 names(feature.sets)
 ```
@@ -189,7 +191,7 @@ returns a genomic ranges object
 csnps <- make_csnps('./inst/extdata/coding_snps_vep_ensembl75.tab')
 head(csnps)
 ```
-```{r}
+```{r,echo = F, eval = T}
 data("csnps.gr",package = "rCOGS")
 head(csnps.gr)
 ```
@@ -201,7 +203,7 @@ The fundamental unit of a pcHi-C map is a restriction fragment this saves us a l
 digest.gr <- load_digest('./inst/extdata/hindIII_digest_grch37.tab')
 head(digest)
 ```
-```{r,eval=FALSE}
+```{r,echo = F, eval = T}
 data("digest.gr",package="rCOGS")
 head(digest.gr)
 ```
@@ -227,5 +229,5 @@ nrow(t1d.DT)
 
 ```{r}
 overall.scores <- compute_cogs(t1d.DT,csnps.gr,digest.gr,feature.sets)
-head(overall.scores)
+head(overall.scores[order(cogs,decreasing = TRUE),])
 ```
