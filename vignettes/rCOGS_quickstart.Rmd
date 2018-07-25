@@ -116,8 +116,13 @@ install_github("ollyburren/rCOGS")
 
 Here we load in ld regions - these are checked and output as a __GRanges__ object
 
+This is how to build objects - note due to size you will need to download these supporting objects into ./inst/extdata/
 ```{r eval=FALSE}
 ld.gr <- load_ld_regions('./inst/extdata/hamap_1cM_recomb.bed')
+ld.gr
+```
+```{r}
+data("ld.gr",package="rCOGS")
 ld.gr
 ```
 
@@ -128,13 +133,21 @@ maf.DT <- load_ref_maf('./inst/extdata/uk10k_reference_maf.tab',min.maf=0.05)
 head(maf.DT)
 ```
 
+```{r}
+data("maf.DT",package="rCOGS")
+head(maf.DT)
+```
+
 ## load association data 
 N.B here we have a study with 4036 cases and 6959 controls.
 ```{r,eval=FALSE}
 t1d.DT <- load_gwas('./inst/extdata/ncooper_t1d_gwas.tab',maf.DT,ld.gr,n.cases=5913,n.controls=8829)
 head(t1d.DT)
 ```
-
+```{r}
+data("t1d.DT",package="rCOGS")
+head(t1d.DT)
+```
 Notice that not all variants are imported, some are ommited as they are below the MAF filter (5%) used in the previous step others don't overlap an LD regions.
 
 
@@ -146,7 +159,10 @@ note the biotype.filter argument. This can be a vector of biotypes or left blank
 feature.sets <- make_pchic('./inst/extdata/javierre_pchic_ensembl75.tab',biotype.filter='protein_coding')
 names(feature.sets)
 ```
-
+```{r}
+data("feature.sets",package="rCOGS")
+names(feature.sets)
+```
 
 Note that we obtain a list where each element is a __data.table__ 
 
@@ -173,6 +189,10 @@ returns a genomic ranges object
 csnps <- make_csnps('./inst/extdata/coding_snps_vep_ensembl75.tab')
 head(csnps)
 ```
+```{r}
+data("csnps.gr",package = "rCOGS")
+head(csnps.gr)
+```
 
 ## load Digest file
 The fundamental unit of a pcHi-C map is a restriction fragment this saves us a lot of computation as we can precompute the support for each fragment to be causal once and then combine to get scores.
@@ -181,15 +201,24 @@ The fundamental unit of a pcHi-C map is a restriction fragment this saves us a l
 digest.gr <- load_digest('./inst/extdata/hindIII_digest_grch37.tab')
 head(digest)
 ```
+```{r,eval=FALSE}
+data("digest.gr",package="rCOGS")
+head(digest.gr)
+```
+
+```{r}
+```
+
 
 
 ## Optional(Remove MHC)
 MHC/HLA has an extremely complex and long LD structure and the genetic finemapping method employed is unable to effectively deal with it, thus it is best to exclude and analyse separately.  
 
-```{r}
+```{r,eval=FALSE}
 nrow(t1d.DT)
 mhc.idx <- which(t1d.DT$chr==6 & between(t1d.DT$pos,25e6,35e6))
-t1d.DT <- t1d.DT[-mhc.idx,]
+if(length(mhc.idx)>0)
+    t1d.DT <- t1d.DT[-mhc.idx,]
 nrow(t1d.DT)
 ```
 
@@ -197,6 +226,6 @@ nrow(t1d.DT)
 ## compute overall cogs score
 
 ```{r}
-overall.scores <- compute_cogs(sle,csnps,digest,regions)
+overall.scores <- compute_cogs(t1d.DT,csnps.gr,digest.gr,feature.sets)
 head(overall.scores)
 ```

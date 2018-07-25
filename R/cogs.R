@@ -11,10 +11,10 @@ compute_cogs <- function(gwas,csnps,digest,regions,feature.set){
   gwas.gr <- with(gwas,GRanges(seqnames=Rle(chr),ranges=IRanges(start=pos,width=1L)))
   ## annotate coding SNPs - we remove these and add back in for gene of interest
   ol.csnps <- findOverlaps(csnps,gwas.gr) %>% as.matrix
-  sle[ol.csnps[,2],csnp:=csnps[ol.csnps[,1],]$ensg]
-  csnps.DT <- sle[,list(csnp.ppi=sum(ppi)),by=c('csnp','ld')][!is.na(csnp),][,.(ensg=csnp,ld=ld,frag.ppi=csnp.ppi)]
+  gwas[ol.csnps[,2],csnp:=csnps[ol.csnps[,1],]$ensg]
+  csnps.DT <- gwas[,list(csnp.ppi=sum(ppi)),by=c('csnp','ld')][!is.na(csnp),][,.(ensg=csnp,ld=ld,frag.ppi=csnp.ppi)]
   ol <- findOverlaps(digest,gwas.gr) %>% as.matrix
-  ol.DT <- data.table(sle[ol[,2],.(csnp,ppi,ld)],fragid=digest[ol[,1],]$fragid)
+  ol.DT <- data.table(gwas[ol[,2],.(csnp,ppi,ld)],fragid=digest[ol[,1],]$fragid)
   #next we remove cSNPs and compute sum for each fragment
   ol.DT <- ol.DT[is.na(csnp),][,list(frag.ppi=sum(ppi)),by=c('ld','fragid')]
   ## to compute scores we want for each lu[['ensg']][['tissue']] is a vector of fragids
