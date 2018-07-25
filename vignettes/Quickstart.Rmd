@@ -22,7 +22,14 @@ __rCOGS__ is a package for integrating GWAS summary statistics with the __p__ ro
 
 ## What does rCOGS require ?
 
-The hardest part of running rCOGS is making sure source files are available and in the correct format. With all files make sure they are relevant to the population that you are studying and use the correct genome build coordinates. __Unless explicitly stated all coords are GRCh37 and non-zero based.__ Depending on usage rCOGS requires the following files:
+The hardest part of running rCOGS is making sure source files are available and in the correct format. With all files make sure they are relevant to the population that you are studying and use the correct genome build coordinates. __Unless explicitly stated all coords are GRCh37 and non-zero based.__ 
+
+The package contains some toy datasets that are used in the rest of this package. Full support files that are suitable for use with data from [Javierre et al.](http://dx.doi.org/10.1016/j.cell.2016.09.037) can be downloaded using the following command
+
+`curl -s https://www.immunobase.org/downloads/rCOGS/rCOGS_extdata.tgz | tar -xvz`
+
+
+Depending on usage rCOGS requires the following files:
 
 ### approximate linkage disequilibrium independent region files
 
