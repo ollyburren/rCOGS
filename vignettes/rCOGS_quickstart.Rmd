@@ -107,59 +107,51 @@ You will need to have the devtool R package installed
 ```{r}
 library(devtools)
 install_github("ollyburren/rCOGS")
-library(rCOGS)
-library(GenomicRanges)
-library(magrittr)
+#library(rCOGS)
+#library(GenomicRanges)
+#library(magrittr)
 ```
 
 ## loading recombination data 
 
 Here we load in ld regions - these are checked and output as a __GRanges__ object
 
-```{r}
-ld.gr <- load_ld_regions('/Users/oliver/DATA/rCOGS/hapmap_recomb.bed')
+```{r eval=FALSE}
+ld.gr <- load_ld_regions('./inst/extdata/hamap_1cM_recomb.bed')
 ld.gr
 ```
 
 ## loading MAF data filter at 5%
 
-```{r}
-maf.DT <- load_ref_maf('/Users/oliver/DATA/rCOGS/uk10k_0.001.tab',min.maf=0.05)
+```{r, eval=FALSE}
+maf.DT <- load_ref_maf('./inst/extdata/uk10k_reference_maf.tab',min.maf=0.05)
 head(maf.DT)
 ```
 
 ## load association data 
 N.B here we have a study with 4036 cases and 6959 controls.
-```{r}
-sle <- load_gwas('/Users/oliver/DATA/rCOGS/SLE.tab',maf.DT,ld.gr,n.cases=4036,n.controls=6959)
-head(sle)
+```{r,eval=FALSE}
+t1d.DT <- load_gwas('./inst/extdata/ncooper_t1d_gwas.tab',maf.DT,ld.gr,n.cases=5913,n.controls=8829)
+head(t1d.DT)
 ```
 
 Notice that not all variants are imported, some are ommited as they are below the MAF filter (5%) used in the previous step others don't overlap an LD regions.
 
-## Optional(Remove MHC)
-MHC/HLA has an extremely complex and long LD structure and the genetic finemapping method employed is unable to effectively deal with it, thus it is best to exclude and analyse separately.  
 
-```{r}
-nrow(sle)
-mhc.idx <- which(sle$chr==6 & between(sle$pos,25e6,35e6))
-sle <- sle[-mhc.idx,]
-nrow(sle)
-```
 
 ## load in pcHi-C map
 note the biotype.filter argument. This can be a vector of biotypes or left blank if everything is required.
 
-```{r}
-regions <- make_pchic('/Users/oliver/DATA/rCOGS/merged_samples_12Apr2015_full_denorm_bait2baits_e75.tab',biotype.filter='protein_coding')
-names(regions)
+```{r,eval=FALSE}
+feature.sets <- make_pchic('./inst/extdata/javierre_pchic_ensembl75.tab',biotype.filter='protein_coding')
+names(feature.sets)
 ```
 
 
 Note that we obtain a list where each element is a __data.table__ 
 
 ```{r}
-head(regions[[1]])
+head(feature.sets[[1]])
 ```
 
 
@@ -167,29 +159,39 @@ head(regions[[1]])
 All Hi-C technologies struggle when assessing interactions between adjacent restricition fragments as it is impossible to resolve what is due to stochastic Brownian motion and which are short range interactions. To offset this COGS has a routine that creates a `Virtual' promter region that consists of a baited fragment and the adjacent 5' and 3' fragments. It takes the digest and design file as arguments.
 
 We add this to the list of regions.
-```{r}
+```{r,eval=FALSE}
 ## get a list of all genes included
-all.genes <- lapply(regions,function(g) unique(g$ensg)) %>% do.call('c',.) %>% unique
-regions[['VProm']] <- make_vprom('/Users/oliver/DATA/rCOGS/Digest_Human_HindIII.tab','/Users/oliver/DATA/rCOGS/HindIII_baits_e75.tab',all.genes)
+all.genes <- lapply(feature.sets,function(g) unique(g$ensg)) %>% do.call('c',.) %>% unique
+feature.sets[['VProm']] <- make_vprom('./inst/extdata/hindIII_digest_grch37.tab','./inst/extdata/javierre_design_ensembl75.tab',all.genes)
 ```
 
 
 ## load in coding SNPS
 returns a genomic ranges object
 
-```{r}
-csnps <- make_csnps('/Users/oliver/DATA/rCOGS/cSNPs_w_ENSG.e75.tab')
+```{r,eval=FALSE}
+csnps <- make_csnps('./inst/extdata/coding_snps_vep_ensembl75.tab')
 head(csnps)
 ```
 
 ## load Digest file
 The fundamental unit of a pcHi-C map is a restriction fragment this saves us a lot of computation as we can precompute the support for each fragment to be causal once and then combine to get scores.
 
-```{r}
-digest <- load_digest('/Users/oliver/DATA/rCOGS/Digest_Human_HindIII.tab')
+```{r,eval=FALSE}
+digest.gr <- load_digest('./inst/extdata/hindIII_digest_grch37.tab')
 head(digest)
 ```
 
+
+## Optional(Remove MHC)
+MHC/HLA has an extremely complex and long LD structure and the genetic finemapping method employed is unable to effectively deal with it, thus it is best to exclude and analyse separately.  
+
+```{r}
+nrow(t1d.DT)
+mhc.idx <- which(t1d.DT$chr==6 & between(t1d.DT$pos,25e6,35e6))
+t1d.DT <- t1d.DT[-mhc.idx,]
+nrow(t1d.DT)
+```
 
 
 ## compute overall cogs score
