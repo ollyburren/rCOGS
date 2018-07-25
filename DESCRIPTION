@@ -3,7 +3,7 @@ Title: Computes gene prioritisation scores based on promoter capture Hi-C data
 Version: 0.0.0.9000
 Authors@R: person("Oliver", "Burren", email = "ob_219@cam.ac.uk", role = c("aut", "cre"))
 Description: What the package does (one paragraph).
-Depends: R (>= 3.4.2), data.table
+Depends: R (>= 3.3.3), data.table
 Imports:
   magrittr,
   GenomicRanges,
