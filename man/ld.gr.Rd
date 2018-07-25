@@ -3,12 +3,14 @@
 \docType{data}
 \name{ld.gr}
 \alias{ld.gr}
-\title{ld.gr}
+\title{ld.gr
+HapMap approx 1cM LD blocks for chromosome 22.}
 \format{GRanges object with 69 ranges and 1 metadata column}
 \usage{
 ld.gr
 }
 \description{
+ld.gr
 HapMap approx 1cM LD blocks for chromosome 22.
 }
 \keyword{datasets}

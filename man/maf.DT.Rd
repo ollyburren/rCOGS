@@ -3,7 +3,8 @@
 \docType{data}
 \name{maf.DT}
 \alias{maf.DT}
-\title{maf.DT}
+\title{maf.DT
+Reference minor allele frequencies from UK10K for chromosome 22.}
 \format{data.table with 74356 rows and 4 variables
 \describe{
   \item{chr}{chromosome}
@@ -15,6 +16,7 @@
 maf.DT
 }
 \description{
+maf.DT
 Reference minor allele frequencies from UK10K for chromosome 22.
 }
 \keyword{datasets}

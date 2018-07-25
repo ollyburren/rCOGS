@@ -1,12 +1,10 @@
 #' ld.gr
-#'
 #' HapMap approx 1cM LD blocks for chromosome 22.
 #'
 #' @format GRanges object with 69 ranges and 1 metadata column
 "ld.gr"
 
 #' maf.DT
-#'
 #' Reference minor allele frequencies from UK10K for chromosome 22.
 #'
 #' @format data.table with 74356 rows and 4 variables
