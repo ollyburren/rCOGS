@@ -87,14 +87,13 @@
 <div id="what-is-rcogs" class="section level2">
 <h2 class="hasAnchor">
 <a href="#what-is-rcogs" class="anchor"></a>What is rCOGS ?</h2>
-<p><strong>rCOGS</strong> is a package for integrating GWAS summary statistics with the <strong>p</strong> romoter <strong>c</strong> apture Hi-C (pcHi-C) contact maps in order to prioritise genes for functional followup. COGS stands for <strong>c</strong> apture Hi-C <strong>o</strong> mnibus <strong>g</strong> ene <strong>s</strong> core and works best with pcHi-C datasets processed using <a href="https://bioconductor.org/packages/release/bioc/html/Chicago.html">CHiCAGO</a>.</p>
+<p><strong>rCOGS</strong> is a package for integrating GWAS summary statistics with the <strong>p</strong> romoter <strong>c</strong> apture Hi-C (pcHi-C) contact maps in order to prioritise genes for functional followup. COGS stands for <strong>C</strong> apture Hi-C <strong>O</strong> mnibus <strong>G</strong> ene <strong>S</strong> core and works best with pcHi-C datasets processed using <a href="https://bioconductor.org/packages/release/bioc/html/Chicago.html">CHiCAGO</a>.</p>
 </div>
 <div id="what-does-rcogs-require" class="section level2">
 <h2 class="hasAnchor">
 <a href="#what-does-rcogs-require" class="anchor"></a>What does rCOGS require ?</h2>
 <p>The hardest part of running rCOGS is making sure source files are available and in the correct format. With all files make sure they are relevant to the population that you are studying and use the correct genome build coordinates. <strong>Unless explicitly stated all coords are GRCh37 and non-zero based.</strong></p>
-<p>The package contains some toy datasets that are used in the rest of this package. Full support files that are suitable for use with data from <a href="http://dx.doi.org/10.1016/j.cell.2016.09.037">Javierre et al.</a> can be downloaded using the following command</p>
-<p><code>curl -s https://www.immunobase.org/downloads/rCOGS/rCOGS_extdata.tgz | tar -xvz</code></p>
+<p>Full support files that are suitable for use with data from <a href="http://dx.doi.org/10.1016/j.cell.2016.09.037">Javierre et al.</a> are available in <code>./inst/extdata/</code>. Note that this vignette uses cutdown versions of these files filtered to use only chr22 to speed things up.</p>
 <p>Depending on usage rCOGS requires the following files:</p>
 <div id="approximate-linkage-disequilibrium-independent-region-files" class="section level3">
 <h3 class="hasAnchor">
@@ -128,7 +127,7 @@
 <div id="minor-allele-frequency-estimates-in-controls" class="section level3">
 <h3 class="hasAnchor">
 <a href="#minor-allele-frequency-estimates-in-controls" class="anchor"></a>Minor allele frequency estimates in controls</h3>
-<p>In order to model whether a given SNP is causal rCOGS needs an estimate of the Minor allele Frequency (MAF) in a control set of samples. If you are using your own data you will have this information to hand. If on the other hand you are using summary statistics downloaded from a public resource such as <a href="https://www.immunobase.org/downloads/protected_data/">ImmunoBase</a> you can use a reference set of genotypes such as <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">1KGenomes</a> again it is important to make sure that these are relevant to the population that you are studying. The format is as follows and each variant to assessed should have a MAF in this file otherwise it will be excluded. Again position are non-zero based.</p>
+<p>In order to model whether a given SNP is causal rCOGS needs an estimate of the Minor allele Frequency (MAF) in a control set of samples. If you are using your own data you will have this information to hand. If on the other hand you are using summary statistics downloaded from a public resource such as <a href="https://www.ebi.ac.uk/gwas/">GWAS Catalog</a> you can use a reference set of genotypes such as <a href="ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/">1KGenomes</a> again it is important to make sure that these are relevant to the population that you are studying. The format is as follows and each variant to assessed should have a MAF in this file otherwise it will be excluded. Again position are non-zero based.</p>
 <table class="table">
 <thead><tr class="header">
 <th>chr</th>
@@ -503,7 +502,7 @@
 <a href="#loading-recombination-data" class="anchor"></a>loading recombination data</h2>
 <p>Here we load in ld regions - these are checked and output as a <strong>GRanges</strong> object</p>
 <p>This is how to build objects - note due to size you will need to download these supporting objects into ./inst/extdata/</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ld.gr &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/load_ld_regions.html">load_ld_regions</a></span>(<span class="st">'./inst/extdata/hamap_1cM_recomb.bed'</span>)</span>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ld.gr &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_ld_regions.html">load_ld_regions</a></span>(<span class="st">'./inst/extdata/hamap_1cM_recomb.bed'</span>)</span>
 <span id="cb3-2"><a href="#cb3-2"></a>ld.gr</span></code></pre></div>
 <pre><code>#&gt; GRanges object with 69 ranges and 1 metadata column:
 #&gt;        seqnames             ranges strand |      ldid
@@ -525,7 +524,7 @@
 <div id="loading-maf-data-filter-at-5" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-maf-data-filter-at-5" class="anchor"></a>loading MAF data filter at 5%</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>maf.DT &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/load_ref_maf.html">load_ref_maf</a></span>(<span class="st">'./inst/extdata/uk10k_reference_maf.tab'</span>,<span class="dt">min.maf=</span><span class="fl">0.05</span>)</span>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>maf.DT &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_ref_maf.html">load_ref_maf</a></span>(<span class="st">'./inst/extdata/uk10k_reference_maf.tab'</span>,<span class="dt">min.maf=</span><span class="fl">0.05</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(maf.DT)</span></code></pre></div>
 <pre><code>#&gt;    chr      pos      maf         pid
 #&gt; 1:  22 16051249 0.107115 22:16051249
@@ -539,7 +538,7 @@
 <h2 class="hasAnchor">
 <a href="#load-association-data" class="anchor"></a>load association data</h2>
 <p>N.B here we have a study with 4036 cases and 6959 controls.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>t1d.DT &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/load_gwas.html">load_gwas</a></span>(<span class="st">'./inst/extdata/ncooper_t1d_gwas.tab'</span>,maf.DT,ld.gr,<span class="dt">n.cases=</span><span class="dv">5913</span>,<span class="dt">n.controls=</span><span class="dv">8829</span>)</span>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>t1d.DT &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_gwas.html">load_gwas</a></span>(<span class="st">'./inst/extdata/ncooper_t1d_gwas.tab'</span>,maf.DT,ld.gr,<span class="dt">n.cases=</span><span class="dv">5913</span>,<span class="dt">n.controls=</span><span class="dv">8829</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(t1d.DT)</span></code></pre></div>
 <pre><code>#&gt;            pid chr      pos     p      maf ld          ppi
 #&gt; 1: 22:16849941  22 16849941 0.798 0.449220  2 1.221142e-05
@@ -554,7 +553,7 @@
 <h2 class="hasAnchor">
 <a href="#load-in-pchi-c-map" class="anchor"></a>load in pcHi-C map</h2>
 <p>note the biotype.filter argument. This can be a vector of biotypes or left blank if everything is required.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>feature.sets &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/make_pchic.html">make_pchic</a></span>(<span class="st">'./inst/extdata/javierre_pchic_ensembl75.tab'</span>,<span class="dt">biotype.filter=</span><span class="st">'protein_coding'</span>)</span>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>feature.sets &lt;-<span class="st"> </span><span class="kw"><a href="../reference/make_pchic.html">make_pchic</a></span>(<span class="st">'./inst/extdata/javierre_pchic_ensembl75.tab'</span>,<span class="dt">biotype.filter=</span><span class="st">'protein_coding'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(feature.sets)</span></code></pre></div>
 <pre><code>#&gt;  [1] "Monocytes"              "Macrophages_M0"        
 #&gt;  [3] "Macrophages_M1"         "Macrophages_M2"        
@@ -582,13 +581,13 @@
 <p>We add this to the list of regions.</p>
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">## get a list of all genes included</span></span>
 <span id="cb12-2"><a href="#cb12-2"></a>all.genes &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(feature.sets,<span class="cf">function</span>(g) <span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(g<span class="op">$</span>ensg)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span>(<span class="st">'c'</span>,.) <span class="op">%&gt;%</span><span class="st"> </span>unique</span>
-<span id="cb12-3"><a href="#cb12-3"></a>feature.sets[[<span class="st">'VProm'</span>]] &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/make_vprom.html">make_vprom</a></span>(<span class="st">'./inst/extdata/hindIII_digest_grch37.tab'</span>,<span class="st">'./inst/extdata/javierre_design_ensembl75.tab'</span>,all.genes)</span></code></pre></div>
+<span id="cb12-3"><a href="#cb12-3"></a>feature.sets[[<span class="st">'VProm'</span>]] &lt;-<span class="st"> </span><span class="kw"><a href="../reference/make_vprom.html">make_vprom</a></span>(<span class="st">'./inst/extdata/hindIII_digest_grch37.tab'</span>,<span class="st">'./inst/extdata/javierre_design_ensembl75.tab'</span>,all.genes)</span></code></pre></div>
 </div>
 <div id="load-in-coding-snps" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-in-coding-snps" class="anchor"></a>load in coding SNPS</h2>
 <p>returns a genomic ranges object</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>csnps &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/make_csnps.html">make_csnps</a></span>(<span class="st">'./inst/extdata/coding_snps_vep_ensembl75.tab'</span>)</span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>csnps &lt;-<span class="st"> </span><span class="kw"><a href="../reference/make_csnps.html">make_csnps</a></span>(<span class="st">'./inst/extdata/coding_snps_vep_ensembl75.tab'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(csnps)</span></code></pre></div>
 <pre><code>#&gt; GRanges object with 6 ranges and 2 metadata columns:
 #&gt;       seqnames    ranges strand |    fragid            ensg
@@ -606,7 +605,7 @@
 <h2 class="hasAnchor">
 <a href="#load-digest-file" class="anchor"></a>load Digest file</h2>
 <p>The fundamental unit of a pcHi-C map is a restriction fragment this saves us a lot of computation as we can precompute the support for each fragment to be causal once and then combine to get scores.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>digest.gr &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/load_digest.html">load_digest</a></span>(<span class="st">'./inst/extdata/hindIII_digest_grch37.tab'</span>)</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>digest.gr &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_digest.html">load_digest</a></span>(<span class="st">'./inst/extdata/hindIII_digest_grch37.tab'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(digest)</span></code></pre></div>
 <pre><code>#&gt; GRanges object with 6 ranges and 1 metadata column:
 #&gt;       seqnames            ranges strand |    fragid
@@ -633,7 +632,7 @@
 <div id="compute-overall-cogs-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compute-overall-cogs-score" class="anchor"></a>compute overall cogs score</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>overall.scores &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/rCOGS/man/compute_cogs.html">compute_cogs</a></span>(t1d.DT,csnps.gr,digest.gr,feature.sets)</span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>overall.scores &lt;-<span class="st"> </span><span class="kw"><a href="../reference/compute_cogs.html">compute_cogs</a></span>(t1d.DT,csnps.gr,digest.gr,feature.sets)</span>
 <span id="cb18-2"><a href="#cb18-2"></a><span class="co">#&gt; rCOGS:compute_cogs feature.set argument missing computing overall score using Monocytes,</span></span>
 <span id="cb18-3"><a href="#cb18-3"></a><span class="co">#&gt; Macrophages_M0,</span></span>
 <span id="cb18-4"><a href="#cb18-4"></a><span class="co">#&gt; Macrophages_M1,</span></span>
