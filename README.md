@@ -12,3 +12,5 @@ install_github('ollyburren/rCOGS',build_vignettes=TRUE)
 # Documentation
 
 Please see online documentation and vignettes for common use cases [here](https://ollyburren.github.io/rCOGS).
+
+A quickstart guide for performing your own analyses is available [here](https://ollyburren.github.io/rCOGS/articles/Quickstart.html)
