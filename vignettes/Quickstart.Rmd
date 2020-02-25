@@ -18,16 +18,13 @@ knitr::opts_chunk$set(
 
 ## What is rCOGS ?
 
-__rCOGS__ is a package for integrating GWAS summary statistics with the __p__ romoter __c__ apture Hi-C (pcHi-C) contact maps in order to prioritise genes for functional followup. COGS stands for __c__ apture Hi-C __o__ mnibus __g__ ene __s__ core and works best with pcHi-C datasets processed using [CHiCAGO](https://bioconductor.org/packages/release/bioc/html/Chicago.html).
+__rCOGS__ is a package for integrating GWAS summary statistics with the __p__ romoter __c__ apture Hi-C (pcHi-C) contact maps in order to prioritise genes for functional followup. COGS stands for __C__ apture Hi-C __O__ mnibus __G__ ene __S__ core and works best with pcHi-C datasets processed using [CHiCAGO](https://bioconductor.org/packages/release/bioc/html/Chicago.html).
 
 ## What does rCOGS require ?
 
 The hardest part of running rCOGS is making sure source files are available and in the correct format. With all files make sure they are relevant to the population that you are studying and use the correct genome build coordinates. __Unless explicitly stated all coords are GRCh37 and non-zero based.__
 
-The package contains some toy datasets that are used in the rest of this package. Full support files that are suitable for use with data from [Javierre et al.](http://dx.doi.org/10.1016/j.cell.2016.09.037) can be downloaded using the following command
-
-`curl -s https://www.immunobase.org/downloads/rCOGS/rCOGS_extdata.tgz | tar -xvz`
-
+Full support files that are suitable for use with data from [Javierre et al.](http://dx.doi.org/10.1016/j.cell.2016.09.037) are available in `./inst/extdata/`. Note that this vignette uses cutdown versions of these files filtered to use only chr22 to speed things up.
 
 Depending on usage rCOGS requires the following files:
 
@@ -44,7 +41,7 @@ These could be computed using data from the [International HapMap project](ftp:/
 
 ### Minor allele frequency estimates in controls
 
-In order to model whether a given SNP is causal rCOGS needs an estimate of the Minor allele Frequency (MAF) in a control set of samples. If you are using your own data you will have this information to hand. If on the other hand you are using summary statistics downloaded from a public resource such as [ImmunoBase](https://www.immunobase.org/downloads/protected_data/) you can use a reference set of genotypes such as [1KGenomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) again it is important to make sure that these are relevant to the population that you are studying. The format is as follows and each variant to assessed should have a MAF in this file otherwise it will be excluded. Again position are non-zero based.
+In order to model whether a given SNP is causal rCOGS needs an estimate of the Minor allele Frequency (MAF) in a control set of samples. If you are using your own data you will have this information to hand. If on the other hand you are using summary statistics downloaded from a public resource such as [GWAS Catalog](https://www.ebi.ac.uk/gwas/) you can use a reference set of genotypes such as [1KGenomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) again it is important to make sure that these are relevant to the population that you are studying. The format is as follows and each variant to assessed should have a MAF in this file otherwise it will be excluded. Again position are non-zero based.
 
 | chr | pos    | maf      |
 |-----|--------|----------|
@@ -135,6 +132,7 @@ This is how to build objects - note due to size you will need to download these 
 ld.gr <- load_ld_regions('./inst/extdata/hamap_1cM_recomb.bed')
 ld.gr
 ```
+
 ```{r,echo = F, eval = T}
 data("ld.gr",package="rCOGS")
 ld.gr
