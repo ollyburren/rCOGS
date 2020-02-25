@@ -22,7 +22,7 @@ __rCOGS__ is a package for integrating GWAS summary statistics with the __p__ ro
 
 ## What does rCOGS require ?
 
-The hardest part of running rCOGS is making sure source files are available and in the correct format. With all files make sure they are relevant to the population that you are studying and use the correct genome build coordinates. __Unless explicitly stated all coords are GRCh37 and non-zero based.__ 
+The hardest part of running rCOGS is making sure source files are available and in the correct format. With all files make sure they are relevant to the population that you are studying and use the correct genome build coordinates. __Unless explicitly stated all coords are GRCh37 and non-zero based.__
 
 The package contains some toy datasets that are used in the rest of this package. Full support files that are suitable for use with data from [Javierre et al.](http://dx.doi.org/10.1016/j.cell.2016.09.037) can be downloaded using the following command
 
@@ -33,7 +33,7 @@ Depending on usage rCOGS requires the following files:
 
 ### approximate linkage disequilibrium independent region files
 
-These could be computed using data from the [International HapMap project](ftp://ftp.ncbi.nlm.nih.gov/hapmap/recombination/latest/rates/) or you can use more recent alternative regions from [Berisa et al.](https://doi.org/10.1093/bioinformatics/btv546). Note that your LD file should match the population that you are studying! If you are using a more targetted platform such as ImmunoChip then you should use the LD regions used to design the platform. What is key is that these regions are non overlapping, it does not matter if they are not contiguous (you will just loose associations that don't overlap). The format is non-zero based BED format as follows
+These could be computed using data from the [International HapMap project](ftp://ftp.ncbi.nlm.nih.gov/hapmap/recombination/latest/rates/) or you can use more recent alternative regions from [Berisa et al.](https://doi.org/10.1093/bioinformatics/btv546). Note that your LD file should match the population that you are studying! If you are using a more targeted platform such as ImmunoChip then you should use the LD regions used to design the platform. What is key is that these regions are non overlapping, it does not matter if they are not contiguous (you will just lose associations that don't overlap). The format is non-zero based BED format as follows
 
 
 | chr | start   | end     |
@@ -44,7 +44,7 @@ These could be computed using data from the [International HapMap project](ftp:/
 
 ### Minor allele frequency estimates in controls
 
-In order to model whether a given SNP is causal rCOGS needs an estimate of the Minor allele Frequency (MAF) in a control set of samples. If you are using your own data you will have this information to hand. If on the other hand you are using summary statistics downloaded from a public resource such as [ImmunoBase](https://www.immunobase.org/downloads/protected_data/) you can use a reference set of genotypes such as [1KGenomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) again it is important to make sure that these are relevant to the population that you are studying. The format is as follows and each variant to assessed should have a MAF in this file otherwise it will be excluded. Again position are non-zero based. 
+In order to model whether a given SNP is causal rCOGS needs an estimate of the Minor allele Frequency (MAF) in a control set of samples. If you are using your own data you will have this information to hand. If on the other hand you are using summary statistics downloaded from a public resource such as [ImmunoBase](https://www.immunobase.org/downloads/protected_data/) you can use a reference set of genotypes such as [1KGenomes](ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/release/20130502/) again it is important to make sure that these are relevant to the population that you are studying. The format is as follows and each variant to assessed should have a MAF in this file otherwise it will be excluded. Again position are non-zero based.
 
 | chr | pos    | maf      |
 |-----|--------|----------|
@@ -126,7 +126,7 @@ library(magrittr)
 library(knitr)
 ```
 
-## loading recombination data 
+## loading recombination data
 
 Here we load in ld regions - these are checked and output as a __GRanges__ object
 
@@ -152,7 +152,7 @@ data("maf.DT",package="rCOGS")
 head(maf.DT)
 ```
 
-## load association data 
+## load association data
 N.B here we have a study with 4036 cases and 6959 controls.
 ```{r,eval=FALSE}
 t1d.DT <- load_gwas('./inst/extdata/ncooper_t1d_gwas.tab',maf.DT,ld.gr,n.cases=5913,n.controls=8829)
@@ -178,7 +178,7 @@ data("feature.sets",package="rCOGS")
 names(feature.sets)
 ```
 
-Note that we obtain a list where each element is a __data.table__ 
+Note that we obtain a list where each element is a __data.table__
 
 ```{r}
 head(feature.sets[[1]])

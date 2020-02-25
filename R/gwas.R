@@ -17,8 +17,8 @@ LD_COLS <- c('chr','start','end')
 #' @param f a scalar representing a file name (so user can understand which file is problematic)
 #' @return a vector of reformatted chromosomes
 
-fix_chr <- function(c,f){
-  ct <- gsub("^chr","",c)
+fix_chr <- function(chr,f){
+  ct <- gsub("^chr","",chr)
   ct[ct=='X']=23
   ct[ct=='Y']=24
   ct[ct=='MT']=25
