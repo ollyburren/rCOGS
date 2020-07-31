@@ -129,7 +129,7 @@ Here we load in ld regions - these are checked and output as a __GRanges__ objec
 
 This is how to build objects - note due to size you will need to download these supporting objects into ./inst/extdata/
 ```{r eval=FALSE}
-ld.gr <- load_ld_regions('./inst/extdata/hamap_1cM_recomb.bed')
+ld.gr <- load_ld_regions('../inst/extdata/hamap_1cM_recomb.bed')
 ld.gr
 ```
 
@@ -141,7 +141,7 @@ ld.gr
 ## loading MAF data filter at 5%
 
 ```{r, eval=FALSE}
-maf.DT <- load_ref_maf('./inst/extdata/uk10k_reference_maf.tab',min.maf=0.05)
+maf.DT <- load_ref_maf('../inst/extdata/uk10k_reference_maf.tab',min.maf=0.05)
 head(maf.DT)
 ```
 
@@ -153,7 +153,7 @@ head(maf.DT)
 ## load association data
 N.B here we have a study with 4036 cases and 6959 controls.
 ```{r,eval=FALSE}
-t1d.DT <- load_gwas('./inst/extdata/ncooper_t1d_gwas.tab',maf.DT,ld.gr,n.cases=5913,n.controls=8829)
+t1d.DT <- load_gwas('../inst/extdata/ncooper_t1d_gwas.tab',maf.DT,ld.gr,n.cases=5913,n.controls=8829)
 head(t1d.DT)
 ```
 ```{r,echo = F, eval = T}
@@ -168,7 +168,7 @@ Notice that not all variants are imported, some are ommited as they are below th
 note the biotype.filter argument. This can be a vector of biotypes or left blank if everything is required.
 
 ```{r,eval=FALSE}
-feature.sets <- make_pchic('./inst/extdata/javierre_pchic_ensembl75.tab',biotype.filter='protein_coding')
+feature.sets <- make_pchic('../inst/extdata/javierre_pchic_ensembl75.tab',biotype.filter='protein_coding')
 names(feature.sets)
 ```
 ```{r,echo = F, eval = T}
@@ -190,7 +190,7 @@ We add this to the list of regions.
 ```{r,eval=FALSE}
 ## get a list of all genes included
 all.genes <- lapply(feature.sets,function(g) unique(g$ensg)) %>% do.call('c',.) %>% unique
-feature.sets[['VProm']] <- make_vprom('./inst/extdata/hindIII_digest_grch37.tab','./inst/extdata/javierre_design_ensembl75.tab',all.genes)
+feature.sets[['VProm']] <- make_vprom('../inst/extdata/hindIII_digest_grch37.tab','./inst/extdata/javierre_design_ensembl75.tab',all.genes)
 ```
 
 
@@ -198,8 +198,8 @@ feature.sets[['VProm']] <- make_vprom('./inst/extdata/hindIII_digest_grch37.tab'
 returns a genomic ranges object
 
 ```{r,eval=FALSE}
-csnps <- make_csnps('./inst/extdata/coding_snps_vep_ensembl75.tab')
-head(csnps)
+csnps.gr <- make_csnps('../inst/extdata/coding_snps_vep_ensembl75.tab')
+head(csnps.gr)
 ```
 ```{r,echo = F, eval = T}
 data("csnps.gr",package = "rCOGS")
@@ -210,8 +210,8 @@ head(csnps.gr)
 The fundamental unit of a pcHi-C map is a restriction fragment this saves us a lot of computation as we can precompute the support for each fragment to be causal once and then combine to get scores.
 
 ```{r,eval=FALSE}
-digest.gr <- load_digest('./inst/extdata/hindIII_digest_grch37.tab')
-head(digest)
+digest.gr <- load_digest('../inst/extdata/hindIII_digest_grch37.tab')
+head(digest.gr)
 ```
 ```{r,echo = F, eval = T}
 data("digest.gr",package="rCOGS")
