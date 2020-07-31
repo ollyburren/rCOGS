@@ -5,7 +5,8 @@
 \alias{t1d.DT}
 \title{t1d.DT
 GWAS data from Cooper et al. for Type 1 diabetes for chromosome 22.}
-\format{data.table with 68300 rows and 7 variables
+\format{
+data.table with 68300 rows and 7 variables
 \describe{
   \item{pid}{unique id obtained from chr and position}
   \item{chr}{chromosome}
@@ -14,7 +15,8 @@ GWAS data from Cooper et al. for Type 1 diabetes for chromosome 22.}
   \item{maf}{minor allele freq from maf.DT}
   \item{ld}{ld block from ld.gr}
   \item{ppi}{posterior probability for variant to be causal}
-}}
+}
+}
 \usage{
 t1d.DT
 }

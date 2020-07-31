@@ -5,13 +5,15 @@
 \alias{maf.DT}
 \title{maf.DT
 Reference minor allele frequencies from UK10K for chromosome 22.}
-\format{data.table with 74356 rows and 4 variables
+\format{
+data.table with 74356 rows and 4 variables
 \describe{
   \item{chr}{chromosome}
   \item{pos}{position GRCh37}
   \item{maf}{minor allele frequency}
   \item{pid}{unique id obtained from chr and position}
-}}
+}
+}
 \usage{
 maf.DT
 }

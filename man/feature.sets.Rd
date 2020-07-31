@@ -5,7 +5,9 @@
 \alias{feature.sets}
 \title{feature.sets
 Feature sets from Javierre et al pcHi-C dataset for chromosome 22.}
-\format{list of 18 data.table objects}
+\format{
+list of 18 data.table objects
+}
 \usage{
 feature.sets
 }

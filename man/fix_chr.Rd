@@ -4,12 +4,12 @@
 \alias{fix_chr}
 \title{This function fixes chromosomes so they are numeric}
 \usage{
-fix_chr(c, f)
+fix_chr(chr, f)
 }
 \arguments{
-\item{f}{a scalar representing a file name (so user can understand which file is problematic)}
-
 \item{chr}{a vector of strings representing chromosomes}
+
+\item{f}{a scalar representing a file name (so user can understand which file is problematic)}
 }
 \value{
 a vector of reformatted chromosomes

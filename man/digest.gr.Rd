@@ -5,7 +5,9 @@
 \alias{digest.gr}
 \title{digest.gr
 HindIII restriction digest for chromosome 22.}
-\format{GRanges object with 7582 ranges and 1 metadata column.}
+\format{
+GRanges object with 7582 ranges and 1 metadata column.
+}
 \usage{
 digest.gr
 }

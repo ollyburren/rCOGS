@@ -241,3 +241,10 @@ nrow(t1d.DT)
 overall.scores <- compute_cogs(t1d.DT,csnps.gr,digest.gr,feature.sets)
 head(overall.scores[order(cogs,decreasing = TRUE),]) %>% kable
 ```
+## Compute a T cell specific score
+```{r}
+target_tissue<-c('Total_CD4_Activated','Total_CD4_NonActivated','Naive_CD4','Total_CD4_MF','Naive_CD8','Total_CD8')
+tcell.scores <- compute_cogs(t1d.DT,csnps.gr,digest.gr,feature.sets,target_tissue) %>% head(.,)
+head(tcell.scores[order(cogs,decreasing = TRUE),]) %>% kable
+```
+

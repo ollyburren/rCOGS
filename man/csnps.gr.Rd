@@ -5,7 +5,9 @@
 \alias{csnps.gr}
 \title{csnps.gr
 Coding SNPs for chromosome 22.}
-\format{GRanges object with 53002 ranges and 2 metadata columns.}
+\format{
+GRanges object with 53002 ranges and 2 metadata columns.
+}
 \usage{
 csnps.gr
 }

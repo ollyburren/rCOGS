@@ -21,8 +21,12 @@
 }
 Additional columns contain CHiCAGO scores for one or more columns.}
 \usage{
-make_pchic(f, chic_thresh = 5, biotype.filter = "protein_coding",
-  remove.trans.contacts = TRUE)
+make_pchic(
+  f,
+  chic_thresh = 5,
+  biotype.filter = "protein_coding",
+  remove.trans.contacts = TRUE
+)
 }
 \arguments{
 \item{f}{a scalar representing file name of pcHi-C file}

@@ -4,18 +4,18 @@
 \alias{compute_cogs}
 \title{This function computes COGS scores for a given trait across a set of pchic regions}
 \usage{
-compute_cogs(gwas, csnps, digest, regions, feature.set)
+compute_cogs(gwas, csnps, digest, regions, feature.names)
 }
 \arguments{
 \item{gwas}{- data.table obtained from load_gwas}
 
-\item{csnps}{= GRanges object obtained from load_csnps}
+\item{csnps}{= GRanges object obtained from make_csnps}
 
 \item{digest}{GRanges object obtained from load_digest}
 
-\item{regions}{list object obtained from load_pchic}
+\item{regions}{list object obtained from make_pchic}
 
-\item{feature.set}{- a character vector of regions to include these must be present in pcHi-C file}
+\item{feature.names}{- a character vector of regions to include these must be present in pcHi-C file}
 }
 \value{
 data.table of results
