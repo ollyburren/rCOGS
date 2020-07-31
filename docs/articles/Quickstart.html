@@ -6,19 +6,19 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>rCOGS Quickstart • rCOGS</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/simplex/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="rCOGS Quickstart">
-<meta property="og:description" content="">
-<meta name="twitter:card" content="summary">
+<meta property="og:description" content="rCOGS">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
 </head>
-<body>
+<body data-spy="scroll" data-target="#toc">
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -69,13 +69,13 @@
 
       
 
-      </header><div class="row">
+      </header><script src="Quickstart_files/header-attrs-2.3/header-attrs.js"></script><script src="Quickstart_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1>rCOGS Quickstart</h1>
+      <h1 data-toc-skip>rCOGS Quickstart</h1>
                         <h4 class="author">Olly Burren</h4>
             
-            <h4 class="date">2020-02-25</h4>
+            <h4 class="date">2020-07-31</h4>
       
       
       <div class="hidden name"><code>Quickstart.Rmd</code></div>
@@ -451,59 +451,58 @@
 <h2 class="hasAnchor">
 <a href="#installing-cogs" class="anchor"></a>Installing COGS</h2>
 <p>You will need to have the devtool R package installed</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(devtools)</span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="kw"><a href="https://rdrr.io/pkg/devtools/man/remote-reexports.html">install_github</a></span>(<span class="st">"ollyburren/rCOGS"</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(rCOGS)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="co">#&gt; Loading required package: data.table</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(GenomicRanges)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co">#&gt; Loading required package: stats4</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a><span class="co">#&gt; Loading required package: BiocGenerics</span></span>
-<span id="cb2-6"><a href="#cb2-6"></a><span class="co">#&gt; Loading required package: parallel</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a><span class="co">#&gt; </span></span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="co">#&gt; Attaching package: 'BiocGenerics'</span></span>
-<span id="cb2-9"><a href="#cb2-9"></a><span class="co">#&gt; The following objects are masked from 'package:parallel':</span></span>
-<span id="cb2-10"><a href="#cb2-10"></a><span class="co">#&gt; </span></span>
-<span id="cb2-11"><a href="#cb2-11"></a><span class="co">#&gt;     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,</span></span>
-<span id="cb2-12"><a href="#cb2-12"></a><span class="co">#&gt;     clusterExport, clusterMap, parApply, parCapply, parLapply,</span></span>
-<span id="cb2-13"><a href="#cb2-13"></a><span class="co">#&gt;     parLapplyLB, parRapply, parSapply, parSapplyLB</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
-<span id="cb2-15"><a href="#cb2-15"></a><span class="co">#&gt; </span></span>
-<span id="cb2-16"><a href="#cb2-16"></a><span class="co">#&gt;     IQR, mad, sd, var, xtabs</span></span>
-<span id="cb2-17"><a href="#cb2-17"></a><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
-<span id="cb2-18"><a href="#cb2-18"></a><span class="co">#&gt; </span></span>
-<span id="cb2-19"><a href="#cb2-19"></a><span class="co">#&gt;     anyDuplicated, append, as.data.frame, basename, cbind,</span></span>
-<span id="cb2-20"><a href="#cb2-20"></a><span class="co">#&gt;     colnames, dirname, do.call, duplicated, eval, evalq, Filter,</span></span>
-<span id="cb2-21"><a href="#cb2-21"></a><span class="co">#&gt;     Find, get, grep, grepl, intersect, is.unsorted, lapply, Map,</span></span>
-<span id="cb2-22"><a href="#cb2-22"></a><span class="co">#&gt;     mapply, match, mget, order, paste, pmax, pmax.int, pmin,</span></span>
-<span id="cb2-23"><a href="#cb2-23"></a><span class="co">#&gt;     pmin.int, Position, rank, rbind, Reduce, rownames, sapply,</span></span>
-<span id="cb2-24"><a href="#cb2-24"></a><span class="co">#&gt;     setdiff, sort, table, tapply, union, unique, unsplit, which,</span></span>
-<span id="cb2-25"><a href="#cb2-25"></a><span class="co">#&gt;     which.max, which.min</span></span>
-<span id="cb2-26"><a href="#cb2-26"></a><span class="co">#&gt; Loading required package: S4Vectors</span></span>
-<span id="cb2-27"><a href="#cb2-27"></a><span class="co">#&gt; </span></span>
-<span id="cb2-28"><a href="#cb2-28"></a><span class="co">#&gt; Attaching package: 'S4Vectors'</span></span>
-<span id="cb2-29"><a href="#cb2-29"></a><span class="co">#&gt; The following objects are masked from 'package:data.table':</span></span>
-<span id="cb2-30"><a href="#cb2-30"></a><span class="co">#&gt; </span></span>
-<span id="cb2-31"><a href="#cb2-31"></a><span class="co">#&gt;     first, second</span></span>
-<span id="cb2-32"><a href="#cb2-32"></a><span class="co">#&gt; The following object is masked from 'package:base':</span></span>
-<span id="cb2-33"><a href="#cb2-33"></a><span class="co">#&gt; </span></span>
-<span id="cb2-34"><a href="#cb2-34"></a><span class="co">#&gt;     expand.grid</span></span>
-<span id="cb2-35"><a href="#cb2-35"></a><span class="co">#&gt; Loading required package: IRanges</span></span>
-<span id="cb2-36"><a href="#cb2-36"></a><span class="co">#&gt; </span></span>
-<span id="cb2-37"><a href="#cb2-37"></a><span class="co">#&gt; Attaching package: 'IRanges'</span></span>
-<span id="cb2-38"><a href="#cb2-38"></a><span class="co">#&gt; The following object is masked from 'package:data.table':</span></span>
-<span id="cb2-39"><a href="#cb2-39"></a><span class="co">#&gt; </span></span>
-<span id="cb2-40"><a href="#cb2-40"></a><span class="co">#&gt;     shift</span></span>
-<span id="cb2-41"><a href="#cb2-41"></a><span class="co">#&gt; Loading required package: GenomeInfoDb</span></span>
-<span id="cb2-42"><a href="#cb2-42"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(magrittr)</span>
-<span id="cb2-43"><a href="#cb2-43"></a><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(knitr)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">devtools</span>)
+<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span>(<span class="st">"ollyburren/rCOGS"</span>)</pre></body></html></div>
+<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">rCOGS</span>)
+<span class="co">#&gt; Loading required package: data.table</span>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">GenomicRanges</span>)
+<span class="co">#&gt; Loading required package: stats4</span>
+<span class="co">#&gt; Loading required package: BiocGenerics</span>
+<span class="co">#&gt; Loading required package: parallel</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'BiocGenerics'</span>
+<span class="co">#&gt; The following objects are masked from 'package:parallel':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,</span>
+<span class="co">#&gt;     clusterExport, clusterMap, parApply, parCapply, parLapply,</span>
+<span class="co">#&gt;     parLapplyLB, parRapply, parSapply, parSapplyLB</span>
+<span class="co">#&gt; The following objects are masked from 'package:stats':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     IQR, mad, sd, var, xtabs</span>
+<span class="co">#&gt; The following objects are masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     anyDuplicated, append, as.data.frame, basename, cbind, colnames,</span>
+<span class="co">#&gt;     dirname, do.call, duplicated, eval, evalq, Filter, Find, get, grep,</span>
+<span class="co">#&gt;     grepl, intersect, is.unsorted, lapply, Map, mapply, match, mget,</span>
+<span class="co">#&gt;     order, paste, pmax, pmax.int, pmin, pmin.int, Position, rank,</span>
+<span class="co">#&gt;     rbind, Reduce, rownames, sapply, setdiff, sort, table, tapply,</span>
+<span class="co">#&gt;     union, unique, unsplit, which, which.max, which.min</span>
+<span class="co">#&gt; Loading required package: S4Vectors</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'S4Vectors'</span>
+<span class="co">#&gt; The following objects are masked from 'package:data.table':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     first, second</span>
+<span class="co">#&gt; The following object is masked from 'package:base':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     expand.grid</span>
+<span class="co">#&gt; Loading required package: IRanges</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; Attaching package: 'IRanges'</span>
+<span class="co">#&gt; The following object is masked from 'package:data.table':</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt;     shift</span>
+<span class="co">#&gt; Loading required package: GenomeInfoDb</span>
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">magrittr</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">knitr</span>)</pre></body></html></div>
 </div>
 <div id="loading-recombination-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-recombination-data" class="anchor"></a>loading recombination data</h2>
 <p>Here we load in ld regions - these are checked and output as a <strong>GRanges</strong> object</p>
 <p>This is how to build objects - note due to size you will need to download these supporting objects into ./inst/extdata/</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ld.gr &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_ld_regions.html">load_ld_regions</a></span>(<span class="st">'./inst/extdata/hamap_1cM_recomb.bed'</span>)</span>
-<span id="cb3-2"><a href="#cb3-2"></a>ld.gr</span></code></pre></div>
+<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="no">ld.gr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/load_ld_regions.html">load_ld_regions</a></span>(<span class="st">'../inst/extdata/hamap_1cM_recomb.bed'</span>)
+<span class="no">ld.gr</span></pre></body></html></div>
 <pre><code>#&gt; GRanges object with 69 ranges and 1 metadata column:
 #&gt;        seqnames             ranges strand |      ldid
 #&gt;           &lt;Rle&gt;          &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt;
@@ -524,8 +523,8 @@
 <div id="loading-maf-data-filter-at-5" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-maf-data-filter-at-5" class="anchor"></a>loading MAF data filter at 5%</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>maf.DT &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_ref_maf.html">load_ref_maf</a></span>(<span class="st">'./inst/extdata/uk10k_reference_maf.tab'</span>,<span class="dt">min.maf=</span><span class="fl">0.05</span>)</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(maf.DT)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="no">maf.DT</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/load_ref_maf.html">load_ref_maf</a></span>(<span class="st">'../inst/extdata/uk10k_reference_maf.tab'</span>,<span class="kw">min.maf</span><span class="kw">=</span><span class="fl">0.05</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">maf.DT</span>)</pre></body></html></div>
 <pre><code>#&gt;    chr      pos      maf         pid
 #&gt; 1:  22 16051249 0.107115 22:16051249
 #&gt; 2:  22 16053444 0.072997 22:16053444
@@ -538,8 +537,8 @@
 <h2 class="hasAnchor">
 <a href="#load-association-data" class="anchor"></a>load association data</h2>
 <p>N.B here we have a study with 4036 cases and 6959 controls.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>t1d.DT &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_gwas.html">load_gwas</a></span>(<span class="st">'./inst/extdata/ncooper_t1d_gwas.tab'</span>,maf.DT,ld.gr,<span class="dt">n.cases=</span><span class="dv">5913</span>,<span class="dt">n.controls=</span><span class="dv">8829</span>)</span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(t1d.DT)</span></code></pre></div>
+<div class="sourceCode" id="cb7"><html><body><pre class="r"><span class="no">t1d.DT</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/load_gwas.html">load_gwas</a></span>(<span class="st">'../inst/extdata/ncooper_t1d_gwas.tab'</span>,<span class="no">maf.DT</span>,<span class="no">ld.gr</span>,<span class="kw">n.cases</span><span class="kw">=</span><span class="fl">5913</span>,<span class="kw">n.controls</span><span class="kw">=</span><span class="fl">8829</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">t1d.DT</span>)</pre></body></html></div>
 <pre><code>#&gt;            pid chr      pos     p      maf ld          ppi
 #&gt; 1: 22:16849941  22 16849941 0.798 0.449220  2 1.221142e-05
 #&gt; 2: 22:16851640  22 16851640 0.419 0.374769  2 1.675352e-05
@@ -553,42 +552,39 @@
 <h2 class="hasAnchor">
 <a href="#load-in-pchi-c-map" class="anchor"></a>load in pcHi-C map</h2>
 <p>note the biotype.filter argument. This can be a vector of biotypes or left blank if everything is required.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>feature.sets &lt;-<span class="st"> </span><span class="kw"><a href="../reference/make_pchic.html">make_pchic</a></span>(<span class="st">'./inst/extdata/javierre_pchic_ensembl75.tab'</span>,<span class="dt">biotype.filter=</span><span class="st">'protein_coding'</span>)</span>
-<span id="cb9-2"><a href="#cb9-2"></a><span class="kw"><a href="https://rdrr.io/r/base/names.html">names</a></span>(feature.sets)</span></code></pre></div>
-<pre><code>#&gt;  [1] "Monocytes"              "Macrophages_M0"        
-#&gt;  [3] "Macrophages_M1"         "Macrophages_M2"        
-#&gt;  [5] "Neutrophils"            "Megakaryocytes"        
-#&gt;  [7] "Endothelial_precursors" "Erythroblasts"         
-#&gt;  [9] "Foetal_thymus"          "Naive_CD4"             
-#&gt; [11] "Total_CD4_MF"           "Total_CD4_Activated"   
-#&gt; [13] "Total_CD4_NonActivated" "Naive_CD8"             
-#&gt; [15] "Total_CD8"              "Naive_B"               
-#&gt; [17] "Total_B"                "VProm"</code></pre>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="no">feature.sets</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/make_pchic.html">make_pchic</a></span>(<span class="st">'../inst/extdata/javierre_pchic_ensembl75.tab'</span>,<span class="kw">biotype.filter</span><span class="kw">=</span><span class="st">'protein_coding'</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span>(<span class="no">feature.sets</span>)</pre></body></html></div>
+<pre><code>#&gt;  [1] "Monocytes"              "Macrophages_M0"         "Macrophages_M1"        
+#&gt;  [4] "Macrophages_M2"         "Neutrophils"            "Megakaryocytes"        
+#&gt;  [7] "Endothelial_precursors" "Erythroblasts"          "Foetal_thymus"         
+#&gt; [10] "Naive_CD4"              "Total_CD4_MF"           "Total_CD4_Activated"   
+#&gt; [13] "Total_CD4_NonActivated" "Naive_CD8"              "Total_CD8"             
+#&gt; [16] "Naive_B"                "Total_B"                "VProm"</code></pre>
 <p>Note that we obtain a list where each element is a <strong>data.table</strong></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(feature.sets[[<span class="dv">1</span>]])</span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="co">#&gt;               ensg fragid chic.score</span></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="co">#&gt; 1: ENSG00000015475 429638   5.683019</span></span>
-<span id="cb11-4"><a href="#cb11-4"></a><span class="co">#&gt; 2: ENSG00000015475 429639   6.259106</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a><span class="co">#&gt; 3: ENSG00000015475 429641   5.181800</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="co">#&gt; 4: ENSG00000015475 429651   5.261521</span></span>
-<span id="cb11-7"><a href="#cb11-7"></a><span class="co">#&gt; 5: ENSG00000015475 429663   5.580373</span></span>
-<span id="cb11-8"><a href="#cb11-8"></a><span class="co">#&gt; 6: ENSG00000015475 429743   5.604308</span></span></code></pre></div>
+<div class="sourceCode" id="cb11"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">feature.sets</span><span class="kw">[[</span><span class="fl">1</span>]])
+<span class="co">#&gt;               ensg fragid chic.score</span>
+<span class="co">#&gt; 1: ENSG00000015475 429638   5.683019</span>
+<span class="co">#&gt; 2: ENSG00000015475 429639   6.259106</span>
+<span class="co">#&gt; 3: ENSG00000015475 429641   5.181800</span>
+<span class="co">#&gt; 4: ENSG00000015475 429651   5.261521</span>
+<span class="co">#&gt; 5: ENSG00000015475 429663   5.580373</span>
+<span class="co">#&gt; 6: ENSG00000015475 429743   5.604308</span></pre></body></html></div>
 </div>
 <div id="create-virtual-promoter-regions" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-virtual-promoter-regions" class="anchor"></a>create Virtual Promoter regions</h2>
 <p>All Hi-C technologies struggle when assessing interactions between adjacent restricition fragments as it is impossible to resolve what is due to stochastic Brownian motion and which are short range interactions. To offset this COGS has a routine that creates a `Virtual’ promter region that consists of a baited fragment and the adjacent 5’ and 3’ fragments. It takes the digest and design file as arguments.</p>
 <p>We add this to the list of regions.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">## get a list of all genes included</span></span>
-<span id="cb12-2"><a href="#cb12-2"></a>all.genes &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(feature.sets,<span class="cf">function</span>(g) <span class="kw"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(g<span class="op">$</span>ensg)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span>(<span class="st">'c'</span>,.) <span class="op">%&gt;%</span><span class="st"> </span>unique</span>
-<span id="cb12-3"><a href="#cb12-3"></a>feature.sets[[<span class="st">'VProm'</span>]] &lt;-<span class="st"> </span><span class="kw"><a href="../reference/make_vprom.html">make_vprom</a></span>(<span class="st">'./inst/extdata/hindIII_digest_grch37.tab'</span>,<span class="st">'./inst/extdata/javierre_design_ensembl75.tab'</span>,all.genes)</span></code></pre></div>
+<div class="sourceCode" id="cb12"><html><body><pre class="r"><span class="co">## get a list of all genes included</span>
+<span class="no">all.genes</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span>(<span class="no">feature.sets</span>,<span class="kw">function</span>(<span class="no">g</span>) <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span>(<span class="no">g</span>$<span class="no">ensg</span>)) <span class="kw">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span>(<span class="st">'c'</span>,<span class="no">.</span>) <span class="kw">%&gt;%</span> <span class="no">unique</span>
+<span class="no">feature.sets</span><span class="kw">[[</span><span class="st">'VProm'</span>]] <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/make_vprom.html">make_vprom</a></span>(<span class="st">'../inst/extdata/hindIII_digest_grch37.tab'</span>,<span class="st">'./inst/extdata/javierre_design_ensembl75.tab'</span>,<span class="no">all.genes</span>)</pre></body></html></div>
 </div>
 <div id="load-in-coding-snps" class="section level2">
 <h2 class="hasAnchor">
 <a href="#load-in-coding-snps" class="anchor"></a>load in coding SNPS</h2>
 <p>returns a genomic ranges object</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>csnps &lt;-<span class="st"> </span><span class="kw"><a href="../reference/make_csnps.html">make_csnps</a></span>(<span class="st">'./inst/extdata/coding_snps_vep_ensembl75.tab'</span>)</span>
-<span id="cb13-2"><a href="#cb13-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(csnps)</span></code></pre></div>
+<div class="sourceCode" id="cb13"><html><body><pre class="r"><span class="no">csnps.gr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/make_csnps.html">make_csnps</a></span>(<span class="st">'../inst/extdata/coding_snps_vep_ensembl75.tab'</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">csnps.gr</span>)</pre></body></html></div>
 <pre><code>#&gt; GRanges object with 6 ranges and 2 metadata columns:
 #&gt;       seqnames    ranges strand |    fragid            ensg
 #&gt;          &lt;Rle&gt; &lt;IRanges&gt;  &lt;Rle&gt; | &lt;numeric&gt;     &lt;character&gt;
@@ -605,8 +601,8 @@
 <h2 class="hasAnchor">
 <a href="#load-digest-file" class="anchor"></a>load Digest file</h2>
 <p>The fundamental unit of a pcHi-C map is a restriction fragment this saves us a lot of computation as we can precompute the support for each fragment to be causal once and then combine to get scores.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>digest.gr &lt;-<span class="st"> </span><span class="kw"><a href="../reference/load_digest.html">load_digest</a></span>(<span class="st">'./inst/extdata/hindIII_digest_grch37.tab'</span>)</span>
-<span id="cb15-2"><a href="#cb15-2"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(digest)</span></code></pre></div>
+<div class="sourceCode" id="cb15"><html><body><pre class="r"><span class="no">digest.gr</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/load_digest.html">load_digest</a></span>(<span class="st">'../inst/extdata/hindIII_digest_grch37.tab'</span>)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">digest.gr</span>)</pre></body></html></div>
 <pre><code>#&gt; GRanges object with 6 ranges and 1 metadata column:
 #&gt;       seqnames            ranges strand |    fragid
 #&gt;          &lt;Rle&gt;         &lt;IRanges&gt;  &lt;Rle&gt; | &lt;integer&gt;
@@ -623,36 +619,36 @@
 <h2 class="hasAnchor">
 <a href="#optionalremove-mhc" class="anchor"></a>Optional(Remove MHC)</h2>
 <p>MHC/HLA has an extremely complex and long LD structure and the genetic finemapping method employed is unable to effectively deal with it, thus it is best to exclude and analyse separately.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(t1d.DT)</span>
-<span id="cb17-2"><a href="#cb17-2"></a>mhc.idx &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/which.html">which</a></span>(t1d.DT<span class="op">$</span>chr<span class="op">==</span><span class="dv">6</span> <span class="op">&amp;</span><span class="st"> </span><span class="kw">between</span>(t1d.DT<span class="op">$</span>pos,<span class="fl">25e6</span>,<span class="fl">35e6</span>))</span>
-<span id="cb17-3"><a href="#cb17-3"></a><span class="cf">if</span>(<span class="kw"><a href="https://rdrr.io/r/base/length.html">length</a></span>(mhc.idx)<span class="op">&gt;</span><span class="dv">0</span>)</span>
-<span id="cb17-4"><a href="#cb17-4"></a>    t1d.DT &lt;-<span class="st"> </span>t1d.DT[<span class="op">-</span>mhc.idx,]</span>
-<span id="cb17-5"><a href="#cb17-5"></a><span class="kw"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(t1d.DT)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">t1d.DT</span>)
+<span class="no">mhc.idx</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span>(<span class="no">t1d.DT</span>$<span class="no">chr</span><span class="kw">==</span><span class="fl">6</span> <span class="kw">&amp;</span> <span class="fu">between</span>(<span class="no">t1d.DT</span>$<span class="no">pos</span>,<span class="fl">25e6</span>,<span class="fl">35e6</span>))
+<span class="kw">if</span>(<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span>(<span class="no">mhc.idx</span>)<span class="kw">&gt;</span><span class="fl">0</span>)
+    <span class="no">t1d.DT</span> <span class="kw">&lt;-</span> <span class="no">t1d.DT</span>[-<span class="no">mhc.idx</span>,]
+<span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span>(<span class="no">t1d.DT</span>)</pre></body></html></div>
 </div>
 <div id="compute-overall-cogs-score" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compute-overall-cogs-score" class="anchor"></a>compute overall cogs score</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>overall.scores &lt;-<span class="st"> </span><span class="kw"><a href="../reference/compute_cogs.html">compute_cogs</a></span>(t1d.DT,csnps.gr,digest.gr,feature.sets)</span>
-<span id="cb18-2"><a href="#cb18-2"></a><span class="co">#&gt; rCOGS:compute_cogs feature.set argument missing computing overall score using Monocytes,</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a><span class="co">#&gt; Macrophages_M0,</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a><span class="co">#&gt; Macrophages_M1,</span></span>
-<span id="cb18-5"><a href="#cb18-5"></a><span class="co">#&gt; Macrophages_M2,</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a><span class="co">#&gt; Neutrophils,</span></span>
-<span id="cb18-7"><a href="#cb18-7"></a><span class="co">#&gt; Megakaryocytes,</span></span>
-<span id="cb18-8"><a href="#cb18-8"></a><span class="co">#&gt; Endothelial_precursors,</span></span>
-<span id="cb18-9"><a href="#cb18-9"></a><span class="co">#&gt; Erythroblasts,</span></span>
-<span id="cb18-10"><a href="#cb18-10"></a><span class="co">#&gt; Foetal_thymus,</span></span>
-<span id="cb18-11"><a href="#cb18-11"></a><span class="co">#&gt; Naive_CD4,</span></span>
-<span id="cb18-12"><a href="#cb18-12"></a><span class="co">#&gt; Total_CD4_MF,</span></span>
-<span id="cb18-13"><a href="#cb18-13"></a><span class="co">#&gt; Total_CD4_Activated,</span></span>
-<span id="cb18-14"><a href="#cb18-14"></a><span class="co">#&gt; Total_CD4_NonActivated,</span></span>
-<span id="cb18-15"><a href="#cb18-15"></a><span class="co">#&gt; Naive_CD8,</span></span>
-<span id="cb18-16"><a href="#cb18-16"></a><span class="co">#&gt; Total_CD8,</span></span>
-<span id="cb18-17"><a href="#cb18-17"></a><span class="co">#&gt; Naive_B,</span></span>
-<span id="cb18-18"><a href="#cb18-18"></a><span class="co">#&gt; Total_B,</span></span>
-<span id="cb18-19"><a href="#cb18-19"></a><span class="co">#&gt; VProm,</span></span>
-<span id="cb18-20"><a href="#cb18-20"></a><span class="co">#&gt; coding_snp</span></span>
-<span id="cb18-21"><a href="#cb18-21"></a><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(overall.scores[<span class="kw"><a href="https://rdrr.io/r/base/order.html">order</a></span>(cogs,<span class="dt">decreasing =</span> <span class="ot">TRUE</span>),]) <span class="op">%&gt;%</span><span class="st"> </span>kable</span></code></pre></div>
+<div class="sourceCode" id="cb18"><html><body><pre class="r"><span class="no">overall.scores</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/compute_cogs.html">compute_cogs</a></span>(<span class="no">t1d.DT</span>,<span class="no">csnps.gr</span>,<span class="no">digest.gr</span>,<span class="no">feature.sets</span>)
+<span class="co">#&gt; rCOGS:compute_cogs feature.names argument missing computing overall score using Monocytes,</span>
+<span class="co">#&gt; Macrophages_M0,</span>
+<span class="co">#&gt; Macrophages_M1,</span>
+<span class="co">#&gt; Macrophages_M2,</span>
+<span class="co">#&gt; Neutrophils,</span>
+<span class="co">#&gt; Megakaryocytes,</span>
+<span class="co">#&gt; Endothelial_precursors,</span>
+<span class="co">#&gt; Erythroblasts,</span>
+<span class="co">#&gt; Foetal_thymus,</span>
+<span class="co">#&gt; Naive_CD4,</span>
+<span class="co">#&gt; Total_CD4_MF,</span>
+<span class="co">#&gt; Total_CD4_Activated,</span>
+<span class="co">#&gt; Total_CD4_NonActivated,</span>
+<span class="co">#&gt; Naive_CD8,</span>
+<span class="co">#&gt; Total_CD8,</span>
+<span class="co">#&gt; Naive_B,</span>
+<span class="co">#&gt; Total_B,</span>
+<span class="co">#&gt; VProm,</span>
+<span class="co">#&gt; coding_snp</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">overall.scores</span>[<span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span>(<span class="no">cogs</span>,<span class="kw">decreasing</span> <span class="kw">=</span> <span class="fl">TRUE</span>),]) <span class="kw">%&gt;%</span> <span class="no">kable</span></pre></body></html></div>
 <table class="table">
 <thead><tr class="header">
 <th align="left">ensg</th>
@@ -686,30 +682,52 @@
 </tbody>
 </table>
 </div>
+<div id="compute-a-t-cell-specific-score" class="section level2">
+<h2 class="hasAnchor">
+<a href="#compute-a-t-cell-specific-score" class="anchor"></a>Compute a T cell specific score</h2>
+<div class="sourceCode" id="cb19"><html><body><pre class="r"><span class="no">target_tissue</span><span class="kw">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'Total_CD4_Activated'</span>,<span class="st">'Total_CD4_NonActivated'</span>,<span class="st">'Naive_CD4'</span>,<span class="st">'Total_CD4_MF'</span>,<span class="st">'Naive_CD8'</span>,<span class="st">'Total_CD8'</span>)
+<span class="no">tcell.scores</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/compute_cogs.html">compute_cogs</a></span>(<span class="no">t1d.DT</span>,<span class="no">csnps.gr</span>,<span class="no">digest.gr</span>,<span class="no">feature.sets</span>,<span class="no">target_tissue</span>) <span class="kw">%&gt;%</span> <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">.</span>,)
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(<span class="no">tcell.scores</span>[<span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span>(<span class="no">cogs</span>,<span class="kw">decreasing</span> <span class="kw">=</span> <span class="fl">TRUE</span>),]) <span class="kw">%&gt;%</span> <span class="no">kable</span></pre></body></html></div>
+<table class="table">
+<thead><tr class="header">
+<th align="left">ensg</th>
+<th align="right">cogs</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">ENSG00000099954</td>
+<td align="right">0.2106387</td>
+</tr>
+<tr class="even">
+<td align="left">ENSG00000099968</td>
+<td align="right">0.0401019</td>
+</tr>
+<tr class="odd">
+<td align="left">ENSG00000131100</td>
+<td align="right">0.0401019</td>
+</tr>
+<tr class="even">
+<td align="left">ENSG00000069998</td>
+<td align="right">0.0056926</td>
+</tr>
+<tr class="odd">
+<td align="left">ENSG00000172967</td>
+<td align="right">0.0007576</td>
+</tr>
+<tr class="even">
+<td align="left">ENSG00000182902</td>
+<td align="right">0.0000110</td>
+</tr>
+</tbody>
+</table>
+</div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-        <div id="tocnav">
-      <h2 class="hasAnchor">
-<a href="#tocnav" class="anchor"></a>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-<li><a href="#what-is-rcogs">What is rCOGS ?</a></li>
-      <li><a href="#what-does-rcogs-require">What does rCOGS require ?</a></li>
-      <li><a href="#pchi-c-designannotation-file">pcHi-C design/annotation file</a></li>
-      <li><a href="#installing-cogs">Installing COGS</a></li>
-      <li><a href="#loading-recombination-data">loading recombination data</a></li>
-      <li><a href="#loading-maf-data-filter-at-5">loading MAF data filter at 5%</a></li>
-      <li><a href="#load-association-data">load association data</a></li>
-      <li><a href="#load-in-pchi-c-map">load in pcHi-C map</a></li>
-      <li><a href="#create-virtual-promoter-regions">create Virtual Promoter regions</a></li>
-      <li><a href="#load-in-coding-snps">load in coding SNPS</a></li>
-      <li><a href="#load-digest-file">load Digest file</a></li>
-      <li><a href="#optionalremove-mhc">Optional(Remove MHC)</a></li>
-      <li><a href="#compute-overall-cogs-score">compute overall cogs score</a></li>
-      </ul>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
 </div>
-      </div>
 
 </div>
 
@@ -720,7 +738,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
